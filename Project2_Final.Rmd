@@ -1145,8 +1145,7 @@ print(g1)
 ##PLACE JOHN's HERE
 
 
-A flood event occured on 2003-09-18 and lasted for 7 days while another flood event occured in the same location 2003-11-19 that lasted for 4 days.
-In the following plots the events in red signify the flood event in the US corresponding with the annotated events above.
+We decided it would be interesting to examine a few specific flooding events in more detail. The two events occured on 2003-09-18 and 2003-11-19 and lasted for 7 and 4 days respectively. In the plots displayed below, the red events signify the flood events in the US corresponding with the annotated events above.
 
 <div style="text-align: center;">
 
