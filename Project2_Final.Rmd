@@ -5,7 +5,7 @@ date: "February 18, 2016"
 output: html_document
 ---
 ##Introduction 
-For this report we will be diving into the global issue of Flood Events. The intial goal of the paper will be to investigate the datasets to better understand. The dataset being investigated involves geographical, spatial, and time parameters that creates an extremely large amount of information to be explored. We will work to break down this large dataset into something smaller and begin to focus on specific events within the flood dataset.
+For this report we will be diving into the global issue of Flood Events. The intial goal of the paper will be to investigate the datasets to gain a better understanding. The dataset being investigated involves geographical, spatial, and time parameters that creates an extremely large amount of information to be explored. We will work to break down this large dataset into something smaller and begin to focus on specific events within the flood dataset.
 
 ```{r, message=F, warning=F, echo = F}
 library(ggplot2)
@@ -171,7 +171,7 @@ In order to understand the map data we begin to break it down by different categ
 
   <span style="float:left;width: 100%;">
 <p>
-Word clouds were used to try and analyze the differences between the Northern Hemisphere (postive Latitude) and the Sourthern Hemisphere (negative Latitude). We wanted to investigate the column labeled "Notes and Comments", which included many news articles after cleaning the text the following word clouds were produced.</p>
+Several additional word clouds were used to try and analyze the differences between the Northern Hemisphere (postive Latitude) and the Sourthern Hemisphere (negative Latitude). We wanted to investigate the column labeled "Notes and Comments", which included many news articles after cleaning the text the following word clouds were produced.</p>
 </span>
 
 </div>
@@ -230,7 +230,7 @@ top10_flood = flood_count[flood_count_order[1:top],]
 ##Top 10 Country Investigation
 
 
-  Now we will investigate the top 10 countries within different categoris of the flood data. To see if we can visualize any unique characteristics within the data. We will look at variables such as the number of floods, deaths by the floods and people displaced by the floods.
+  Now we will investigate the top 10 countries within different categoris of the flood data to see if we can visualize any unique characteristics within the data. We will look at variables such as the number of floods, flooding deaths and number of people displaced by flooding.
 
 
 ```{r, message=F, warning=F, echo = FALSE, fig.align='center'}
@@ -280,19 +280,15 @@ a  = ggplot(top10_flood, aes(x = factor(Country), y = count)) +
 
 ```
 
-We can see that there are some insights within some of these plots. We can see that there are several countries that appear in all three plots. These are Brazil,China,Indea,Indonesia,Phillippines,USA and Vienam. Seeing some of the more devloped countries such as the USA seems surprising here because of how many flood events actually occur. There could be a difference in reporting here as well, such as the USA has been recording these events longer and therefore has a higher number of events.
+Clearly, there are conclusions to be drawn by examining some of these plots. Right away, we can observe that there are several countries that appear in all three plots: Brazil, China, India, Indonesia, Philippines, USA and Vienam. Seeing some of the more devloped countries such as the USA might be surprising but there could be a difference in reporting. Another interesting find is that Iran, Pakistan and Afghanistan appear in the top 10 for deaths but not for displacements.
 
+* In Iran there were 9,107 deaths and 10,364 displaced.
 
-Another interesting finding is that Iran, Pakistan and Afghanistan appear in the highest number of deaths but not in the highest number of displaced. Looking deeper into these categoies we find that they just mostlikely missed the top 10.
+* In Pakistan there were 9,346 deaths and 14,611 displaced.
 
-* Iran we can see that there were 9,107 deaths which also accompanied 10,364 displaced.
+* In Afghanistan there were 9,150 deaths and 10,931 displaced.
 
-* Pakistan we can see that there were 9,346 deaths which also accompanied 14,611 displaced.
-
-* Afghanistan we can see that there were 9,150 deaths which also accompanied 10,931 displaced.
-
-So we can see a positive correlation occuring between the number of Flood Events, Deaths and Displaced.
-
+This can be explained by the positive correlation between the number of Flood Events, Deaths and Displaced.
 
 ```{r, message=F, warning=F, echo = FALSE, fig.align='center'}
 #The following is to use the google API to determine elevations
@@ -379,16 +375,13 @@ f = ggplot(df, aes(x = (Month))) +
 
 ```
 
-These density plots show us that the total number of flood events occured between the years of 2002 - 2003 by looking at the left column of plots "Total Time Period" Looking at  "Differences between Hemispheres" we can actually see this may be mostly contributed by the Southern Hemisphere Countries begining to record their Flood Events along with the countries in the Northern Hemisphere. We can see that from 2002 on the Southern Hemisphere makes up more of the recorded events.
+These density plots show us that the total number of flood events occured between the years of 2002 - 2003 by looking at the left column of plots "Total Time Period". Looking at "Differences between Hemispheres", we can actually see this may be mostly contributed by the Southern Hemisphere Countries begining to record their Flood Events along with the countries in the Northern Hemisphere. By examining this further, we notice that the Southern Hemisphere makes up more of the recorded events beginning in 2002.
 
-From teh same column we can look at the Severity Plots for the Total Time Period. The Middle Severity of 1.5 does not start until 2005. This suggests that the rating for this category did not previously exist, judging by how much it is currently used.
+From the same column we can look at the Severity Plots for the Total Time Period. The Middle Severity of 1.5 does not start until 2005. This suggests that the rating for this category did not previously exist, judging by how much it is currently used.
 
 We then began to look for correlations between elevation and different aspects of the flooding events. The general intution would be that the higher the elevation, the lower the number of flood events
 
-As we look at the right side of the plots "Groupd by Month" we can further see some interesting characteristics. Looking at the upper right plot it would seem that for the world most of the flooding occurs in the 7th month, July. However as we break this down to Northern and Southern Hemispheres we can see that these seasons are opposite for each region. This makes sense because the different hemispheres experience opposite seasons.
-
-Severity per month does not tell us much more additional information, the splits are very similar.
-
+As we look at the right side of the plots "Groupd by Month" we can further see some interesting characteristics. Looking at the upper right plot it would seem that for the world most of the flooding occurs in July. However, as we break this down to Northern and Southern Hemispheres we can see that these seasons are opposite for each region. This makes sense because the different hemispheres experience opposite seasons. Severity per month does not tell us much more additional information as the splits are very similar.
 
 
 ```{r, message=F, warning=F, echo = FALSE, fig.align='center'}
@@ -444,7 +437,7 @@ d = ggplot(test, aes(x=elevation, y=Duration.in.Days)) +
 
 ```
 
-An interesting finding fomr this graph is the outlier that was located at the top for Duration in Days. We can see that there is a flood event that happend in the USA and lasted for 419 days. The next closest was 168 days which occured in Zambia. We can also see a negative correlation with the elevation and duration in days. This was removed in the plotting due to resolution.
+An interesting find from this graph is the outlier that was located at the top for Duration in Days. We can see that there is a flood event that happend in the USA and lasted for 419 days. The next closest was 168 days which occured in Zambia. Another interesting observation is the negative correlation between elevation and the duration in days. This was removed in the plotting due to resolution.
 
 
 ```{r, message=F, warning=F, echo = FALSE, fig.align='center'}
@@ -487,9 +480,9 @@ d = ggplot(filtered, aes(x=elevation, y=Magnitude..M...)) +
   print(d, vp = viewport(layout.pos.row = 3, layout.pos.col = 2),newpage=FALSE)
 ```
 
-From these plots we can notice that there is a negative correlation between elevation and the number of displaced people for the flood events. In contract see a positive correlation between elevation and the number of dead. 
+From these plots we can notice that there is a negative correlation between elevation and the number of displaced people for the flood events. In contract, we observe a positive correlation between elevation and the number of dead. 
 
-For Affected Square km it might seem that there is no correlation but there is a slightly negative correlation between teh Elevation and Affected Square km. the Y-axis is suppressing this but is not a strong enough correlation to be relevant.
+For Affected Square km it might seem that there is no correlation but there is a slightly negative correlation between the Elevation and Affected Square km. the Y-axis is suppressing this but it is not a strong enough correlation to be relevant.
 #
 
 ```{r, message=F, warning=F, echo = FALSE, fig.align='center', eval = F}
@@ -933,7 +926,7 @@ create_wc(16)
 
 
 ##2003 Flood Event Investigation
-First we will take a holistic view of the world map during 2003, which was the year that generated the largest number of floods. While this could have been just due to reporting we will focus on this year to continue to narrow our scope of the data.
+First we will take a holistic view of the world map during 2003, which was the year that generated the largest number of floods. While this could have been just due to reporting, we will focus on this year to narrow the scope of the data.
 
 Displayed below is an interactive world map showing the number of deaths by country in 2003. The countries with fewer deaths are lighter and the countries with more deaths are darker. Run the mouse over a country to display its name and number of deaths associated with it.
 
@@ -1033,11 +1026,7 @@ multiplot(c,d)
 
 
 
-
-
-We did PCA analysis on the 2003 data, with 10 numerical variables of "Duration.in.Days", "Dead", "Displaced", "Severity..", "Affected.sq.km", "Magnitude..M...", "Centroid.X", "Centroid.Y", "M.6" and "M.4". And we grouped by the Main Causes of the floods. 
-
-In 2003, there are 7 main causes, which are "Heavy rain", "Tropical Cyclone", "Brief torrential rain", "Dam/Levy, break or release", "Monsoonal rain", "Snow Melt", "Ice Jams", "Rain and Snow Melt" and "Rainy Season".      
+We then did a PCA analysis on the 2003 data, with 10 numerical variables of "Duration.in.Days", "Dead", "Displaced", "Severity..", "Affected.sq.km", "Magnitude..M...", "Centroid.X", "Centroid.Y", "M.6" and "M.4". Note that we decided to group the Main Causes of the floods. In 2003, there were 7 main causes, which were "Heavy rain", "Tropical Cyclone", "Brief torrential rain", "Dam/Levy, break or release", "Monsoonal rain", "Snow Melt", "Ice Jams", "Rain and Snow Melt" and "Rainy Season".      
 
 
 ```{r, echo=FALSE,message=FALSE, warning=FALSE,fig.align='center'}
@@ -1057,17 +1046,14 @@ pca <- prcomp(df3_5,scale=TRUE,center=TRUE)
 plot(pca, type = "l",main="PCA for year 2003")
 ```
 
-There is one Priciple Component that explains quite a lot of the variance. The left PCs drop quickly after first one and decrease accordingly.
-
-Let's look at the summary of the PCA.
+The first principal comoponent explains quite a large proportion of the variance. After the first PC, however, the remaining principal components decrease quickly. The summary of the PCA is displayed below:
 
 ```{r, echo=FALSE,message=FALSE, warning=FALSE}
 summary(pca)
 ```
 
-The first PC consists of 33.85% of the total variance, together with the second PC, 46% of the variance can be explained.
+The first PC explains 33.85% of the total variance and together with the second PC, 46% of the variance can be explained. Next, we examine the groups by first two principal components.
 
-Next let's look at the groups by first two principle components.
 ```{r, echo=FALSE,message=FALSE, warning=FALSE, fig.align='center'}
 library(devtools)
 #install_github("vqv/ggbiplot",force = TRUE)
@@ -1080,7 +1066,7 @@ g <- g + theme(legend.direction = 'horizontal',
 print(g)
 ```
 
-The plot shows except two centroid, the other 8 factors have similar directions and they can be explianed by first principle component well. Among the groups of the main causes of floods, we can see "Snow Melt" and "Monsoonal rain" typically lie more right, which indicates heavier damage. While "Ice Jams" and "Brief torrential rain" are left in the plot, which indicates less damage.
+The plot shows that 8 factors (excluding the two centroids) have similar directions and they are explianed by first principle component well. Among the groups of the main causes of floods, we can see that "Snow Melt" and "Monsoonal rain" typically lie more towards the right, which indicates heavier damage. "Ice Jams" and "Brief torrential rain" are towards the left of the plot, which indicates less damage.
 
 ```{r, echo=FALSE,message=FALSE, warning=FALSE, eval=FALSE, fig.align='center'}
 df$Main.cause = as.factor(df$Main.cause)
